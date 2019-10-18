@@ -36,8 +36,8 @@
                 <td th:text="${city.description}"></td>
             </tr>
             <tr>
-                <td><a href="">Edit</a></td>
-                <td><a href="">Delete</a></td>
+                <td><a th:href="@{/edit/{id}(id=${city.id})}">Edit</a></td>
+                <td><a th:href="@{/deleteCity/{id}(id=${city.id})}">Delete</a></td>
             </tr>
         </table>
     </div>
