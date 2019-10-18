@@ -1,5 +1,7 @@
 package com.codegym.model;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,11 +14,14 @@ public class City {
 
     private String name;
 
-    private String area;
+    @NumberFormat
+    private int area;
 
-    private String population;
+    @NumberFormat
+    private int population;
 
-    private String GDP;
+    @NumberFormat
+    private int GDP;
 
     private String description;
     @ManyToOne
@@ -41,27 +46,27 @@ public class City {
         this.name = name;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 
-    public String getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 
-    public String getGDP() {
+    public int getGDP() {
         return GDP;
     }
 
-    public void setGDP(String GDP) {
+    public void setGDP(int GDP) {
         this.GDP = GDP;
     }
 
@@ -81,7 +86,7 @@ public class City {
         this.country = country;
     }
 
-    public City(String name, String area, String population, String GDP, String description) {
+    public City(String name, int area, int population, int GDP, String description) {
         this.name = name;
         this.area = area;
         this.population = population;
