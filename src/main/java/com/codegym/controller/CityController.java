@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -66,7 +67,10 @@ public class CityController {
     }
 
     @PostMapping("edit")
-    public String editCity(@Validated City city) {
+    public String editCity(@Validated City city, BindingResult bindingResult) {
+        if (bindingResult.hasFieldErrors()){
+            return "edit";
+        }
         cityService.save(city);
 
         return "redirect:/";
@@ -92,7 +96,10 @@ public class CityController {
     }
 
     @PostMapping("create")
-    public String creat(@Validated City city){
+    public String creat(@Validated City city, BindingResult bindingResult){
+        if (bindingResult.hasFieldErrors()){
+            return "create";
+        }
         cityService.save(city);
         return "redirect:/";
     }

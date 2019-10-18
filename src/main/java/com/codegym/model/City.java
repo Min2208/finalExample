@@ -3,6 +3,7 @@ package com.codegym.model;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "city")
@@ -11,7 +12,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
+    @NotEmpty
     private String name;
 
     @NumberFormat
@@ -23,6 +24,7 @@ public class City {
     @NumberFormat
     private int GDP;
 
+    @NotEmpty
     private String description;
     @ManyToOne
     @JoinColumn(name = "country_id")

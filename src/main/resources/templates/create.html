@@ -15,7 +15,7 @@
                 <tr><td><input type="hidden" th:field="*{id}"></td></tr>
                 <tr>
                     <td>Name</td>
-                    <td ><input type="text" th:field="*{name}"></td>
+                    <td ><input type="text" th:field="*{name}"><span th:if="${#fields.hasErrors('name')}" th:text="#{NotEmpty.city.name}"></span></td>
                 </tr>
                 <tr>
                     <td>Country</td>
@@ -25,19 +25,19 @@
                 </tr>
                 <tr>
                     <td>Area</td>
-                    <td><input type="text" th:field="*{area}"></td>
+                    <td><input type="text" th:field="*{area}"><span th:if="${#fields.hasErrors('area')}" th:text="#{NumberFormat.city.area}"></span></td>
                 </tr>
                 <tr>
                     <td>GDP</td>
-                    <td><input type="text" th:field="*{GDP}"></td>
+                    <td><input type="text" th:field="*{GDP}"><span th:if="${#fields.hasErrors('GDP')}" th:text="#{NumberFormat.city.GDP}"></span></td>
                 </tr>
                 <tr>
                     <td>Population</td>
-                    <td ><input type="text" th:field="*{population}"></td>
+                    <td ><input type="text" th:field="*{population}"><span th:if="${#fields.hasErrors('population')}" th:text="#{NumberFormat.city.population}"></span></td>
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td><input type="text" th:field="*{description}"></td>
+                    <td><input type="text" th:field="*{description}"><span th:if="${#fields.hasErrors('description')}" th:text="#{NotEmpty.city.description}"></span></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Create"></td>
