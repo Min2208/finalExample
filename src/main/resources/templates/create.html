@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: header">
+
+</head>
+<body>
+
+<br>
+<div class="container">
+    <h3>Create City</h3>
+
+    <div>
+        <form th:action="@{/create}" method="post" th:object="${city}">
+            <table>
+                <tr><td><input type="hidden" th:field="*{id}"></td></tr>
+                <tr>
+                    <td>Name</td>
+                    <td ><input type="text" th:field="*{name}"></td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td><select name="country">
+                        <option th:each="p : ${country}" th:text="${p.name}" th:value="${p.id}"></option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Area</td>
+                    <td><input type="text" th:field="*{area}"></td>
+                </tr>
+                <tr>
+                    <td>GDP</td>
+                    <td><input type="text" th:field="*{GDP}"></td>
+                </tr>
+                <tr>
+                    <td>Population</td>
+                    <td ><input type="text" th:field="*{population}"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" th:field="*{description}"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Create"></td>
+                    <td><a th:href="@{/}">Cancel</a></td>
+
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<hr>
+<footer th:replace="layout:: footer"></footer>
+</body>
+</html>

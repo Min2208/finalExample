@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: header">
+
+</head>
+<body>
+
+<br>
+<div class="container">
+    <h3>Information City</h3>
+
+    <div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td th:text="${city.name}"></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td th:text="${city.country.name}"></td>
+            </tr>
+            <tr>
+                <td>Area</td>
+                <td th:text="${city.area}"></td>
+            </tr>
+            <tr>
+                <td>GDP</td>
+                <td th:text="${city.GDP}"></td>
+            </tr>
+            <tr>
+                <td>Population</td>
+                <td th:text="${city.population}"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td th:text="${city.description}"></td>
+            </tr>
+            <tr>
+                <td><a th:href="@{/delete/{id}(id=${city.id})}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<hr>
+<footer th:replace="layout:: footer"></footer>
+</body>
+</html>
